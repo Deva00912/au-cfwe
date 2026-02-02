@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Set Noto Sans as default font for UI elements */
+* {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* Rich Text Editor Styles */
+.rich-text-editor .ql-editor {
+  min-height: 200px;
+  font-size: 16px;
+  font-family: "Noto Serif", serif;
+  line-height: 1.7;
+}
+
+.rich-text-editor .ql-toolbar {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.rich-text-editor .ql-container {
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  font-family: "Noto Serif", serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Prose Styles for Rendered Content - Using Noto Serif for readability */
+.prose {
+  max-width: none;
+  line-height: 1.7;
+  color: #374151;
+  font-family: "Noto Serif", serif;
+  font-size: 1.125rem;
+}
+
+.prose h1 {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.prose h2 {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.prose h3 {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1.25em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  font-family: "Noto Serif", serif;
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  padding-left: 1.625em;
+  font-family: "Noto Serif", serif;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-family: "Noto Serif", serif;
+}
+
+.prose strong {
+  color: #1f2937;
+  font-weight: 600;
+  font-family: "Noto Serif", serif;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 500;
+  font-family: "Noto Serif", serif;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  margin: 2em 0;
+}
+
+.prose blockquote {
+  font-weight: 500;
+  font-style: italic;
+  color: #6b7280;
+  border-left-width: 0.25rem;
+  border-left-color: #e5e7eb;
+  quotes: "\201C""\201D""\2018""\2019";
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  padding-left: 1em;
+  font-family: "Noto Serif", serif;
+}
+
+.prose blockquote p:first-of-type::before {
+  content: open-quote;
+}
+
+.prose blockquote p:last-of-type::after {
+  content: close-quote;
+}
+
+/* Table Styles */
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  border: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.prose table th {
+  background-color: #4f46e5;
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.prose table td {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  vertical-align: top;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.prose table tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.prose table tr:hover {
+  background-color: #f3f4f6;
+}
+
+/* Editor Table Styles */
+.ql-editor table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+  font-family: "Noto Serif", serif;
+}
+
+.ql-editor table td,
+.ql-editor table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  min-width: 100px;
+  font-family: "Noto Serif", serif;
+}
+
+.ql-editor table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  font-family: "Noto Serif", serif;
+}
+
+.ql-editor table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Utility Classes */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .prose table {
+    white-space: normal;
+  }
+}
+
+/* Form Elements */
+input,
+textarea,
+select,
+button {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* Code and pre elements */
+code,
+pre {
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Ensure icons are not affected */
+[class*="lucide-"],
+[class*="icon-"],
+.material-icons,
+.fa,
+.fas,
+.far,
+.fab {
+  font-family: inherit !important;
+}
+
+/* Headers and navigation - Use Noto Sans for better UI */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Noto Sans", sans-serif;
+}
+
+nav,
+header,
+footer {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* Button and interactive elements */
+button,
+.btn,
+[role="button"] {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* Card titles and UI text */
+.card-title,
+.program-title,
+.news-title {
+  font-family: "Noto Sans", sans-serif;
+}
+
+/* Statistics and numbers */
+.stat-number,
+.counter {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+}
