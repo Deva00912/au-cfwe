@@ -23,7 +23,7 @@ apiClient.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 // Add response interceptor to handle common errors
@@ -37,7 +37,7 @@ apiClient.interceptors.response.use(
       window.location.href = "/login";
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 // ============================================
@@ -47,6 +47,8 @@ export const authAPI = {
   login: (email, password) =>
     apiClient.post("/api/auth/login", { email, password }),
   register: (userData) => apiClient.post("/api/auth/register", userData),
+  createStaff: (staffData) =>
+    apiClient.post("/api/auth/admin/create-staff", staffData),
   logout: () => apiClient.post("/api/auth/logout"),
   refreshToken: () => apiClient.post("/api/auth/refresh-token"),
 };

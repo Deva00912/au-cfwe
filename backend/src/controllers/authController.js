@@ -136,6 +136,66 @@ exports.getMe = async (req, res) => {
   }
 };
 
+// @desc    Create staff member (admin only)
+// @route   POST /api/auth/admin/create-staff
+// @access  Private/Admin
+exports.createStaff = async (req, res) => {
+  try {
+    const { name, email, password, role } = req.body;
+
+    // Validate required fields
+    if (!name || !email || !password) {
+      return res.status(400).json({
+        status: "error",
+        message: "Please provide name, email, and password",
+      });
+    }
+
+    // Check if user already exists
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      return res.status(400).json({
+        status: "error",
+        message: "User with this email already exists",
+      });
+    }
+
+    // Validate password length
+    if (password.length < 6) {
+      return res.status(400).json({
+        status: "error",
+        message: "Password must be at least 6 characters long",
+      });
+    }
+
+    // Create new user/staff member
+    const newUser = await User.create({
+      name,
+      email,
+      password,
+      role: role || "editor",
+    });
+
+    res.status(201).json({
+      status: "success",
+      data: {
+        user: {
+          id: newUser._id,
+          name: newUser.name,
+          email: newUser.email,
+          role: newUser.role,
+          createdAt: newUser.createdAt,
+        },
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: error.message,
+    });
+  }
+};
+
 // @desc    Update user profile
 // @route   PUT /api/auth/update-profile
 // @access  Private

@@ -90,10 +90,11 @@ const StaffManagement = () => {
       }
 
       // Call API to create new staff member
-      const response = await authAPI.register({
+      const response = await authAPI.createStaff({
         name: formData.name,
         email: formData.email,
         password: formData.password,
+        role: formData.role,
       });
 
       if (response.data.user) {
