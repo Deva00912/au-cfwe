@@ -173,7 +173,7 @@ const startServer = async () => {
     await connectDB();
 
     const PORT = process.env.PORT || 7000;
-    const HOST = process.env.HOST || "localhost";
+    const HOST = process.env.HOST || "0.0.0.0";
 
     const server = app.listen(PORT, HOST, () => {
       console.log(
